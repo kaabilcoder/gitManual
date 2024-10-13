@@ -1,0 +1,141 @@
+$ git config --global user.name "Saurabkumar" //to initialize the 
+$ git config --global user.email "saurabhkumar4t5@gmail.com"	// to initialize the email
+
+$ git config --get user.name	// to check the existing username
+$ git config --get user.email	// to check the existing email
+
+$ git init		// to initialize the git of any specific directory or folder it will create the .git folder on the directory in hidden items
+
+$ git status		// it will give the status of the selected directory about git
+
+$ git add <file>                  // to add/track any specific file
+$ git rm --cached <file>		// to remove from track of any specific file
+
+{ To remove any group of specific files of any specific extensions from being tracked, you need to create first a file named < .gitignore > and open that file on any text editor and write the below script - 
+	
+	{
+		# ignore all .txt files		// to remove the .txt files
+		*.txt	
+	}
+}
+
+// To add any Entire directory to being tracked in git you can give any one command given below:
+
+ 
+$ git add --all
+$ git add .A
+$ git add .
+
+// Now if you have make any changes on the current files which are being tracked then you can check the difference between the old file and the new file by giving following commands:
+
+$ git diff
+
+// Now if you want to get restored that files just give the following commands
+
+$ git restore < file name > 
+
+// Now you can again add the files to be tracked by giving one of the command which mentioned above...
+
+// Now we need to commit the files to get saved in the Github and for this we need to give the following commands
+
+$ git --commit -m " < write any message > "
+
+// Now if you made changes and now want to add and commit at the same time by a single command then you can follow the given below command :
+
+$ git commit -a -m " < write your commit message here > "
+
+Now if you wanna change the name or Rename your files under git, then you can simply give the following command: 
+
+$ git mv " < old file name > " " < new file name > "
+
+Now if you wanna to see all the history of bookmark of your commits and file history then just put the followin command:
+
+$ git log
+
+And if you wanna to see all this history in brief or in short without any detailing, then just put the following command:
+
+$ git log --oneline
+
+Now if you wanna change the name of the last commited message then just put the following below command:
+
+$ git commit -m " < new message > " --amend
+
+Now more advancedly if you wanna see all the history in full detail with the changes made too and the difference and all history, then just put the below command:
+
+$ git log -p
+
+Now if you need any more and further help in Git then just give the following command to get redirect into the browser page ( Git-log Manual Page):
+
+$ git help log
+
+Now if you want to go back into the previous commit then you can just simply write the command and the hash number of that commit, which you can check by giving the command of { git log --oneline }
+
+$ git reset < hash id of the previous commit >
+
+Now if you want to customize more the order of the commit history or the more complex changes and customization, just put the below command and you will get redirected to the root
+terminal page from where you can customize all the commits appearance and the order. Also you will get the commands to change the things there only.
+
+$ git rebase -i --root			// to exit it just type { :x }
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Now here all this commits and working are processing in the Main Branch. And Generally if you wanna customize the things here and not get affected the main branch, then you can just
+create another clone Branch of the Main Branch and use it to customize the things. You need to use this method for like Bug fixing and all. And once you have done your work and satisfied
+you can just simply merge that clone branch to the main Branch.
+
+Now to create the New branch on the given directory, you can just simply give the below command:
+
+$ git branch < name of new branch >
+
+And if you wanna check that how many branches you have made till now, you can just simply give the following command to list down the names of all the branches:
+
+$ git branch
+
+And if you wanna to switch between the branches you can simply :
+
+$ git switch < branch name >
+
+Now here you are in the new cloned branch of the orignial. So if here you make any changes and commit the changes will not affect the main branch. So now if you wanna make this changes
+in the main branch. you can simply commit the both branches by giving the command below: 
+
+// here at last you need to mention the name of the cloned branch that which branch should need to be merged with the original one.
+
+$ git merge -m " < the commit or merge message > " < name of the branch you want to be merged with the main one >
+
+Now if you have merged the branch and there is no use of the cloned branch. So now you can delete the cloned branch by giving following command below:
+
+$ git branch -d < branch name to be deleted >		// the branch name you need to mention which is getting deleted
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Now we need to add this branch on our github repository, by simply giving three commands given below
+
+$ git remote add origin < github_repo_link >
+$ git branch -M master					// master = main branch name 
+$ git push origin master				// master = main branch name
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Another method to add the branch and git files on the github repository, by simple creating the SSH keys for that just follow the given commands
+
+step 1. Go to the home folder on the terminal
+step 2. give the command - { $ ls .ssh }
+step 3. ssh-keygen -t ed25519 -C ' < your gmail account > '		// this command will generate the ssh key
+step 4. now copy this SSH key and go in your github account > Settings > SSH and GPG keys > in the key section.
+step 5. Now clone the desired github repository by HTTPs Link > then give the command:
+step 6. $ git clone < lint of the github repository >			// It will generate a directory of that repository
+step 6. then move the files to this repository directory and then 
+step 7. Add and commit by the git commands
+step 8. At last push the files by giving the command - $ git push origin < branch name >		// usually branch name - Main
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+# How to Contribute on someone project in github:
+
+Now The concept of pull: Suppose you are working on a project of someone else project by doing Fork of the owner repo to copy on the your repo> then clone to your terminal > After that
+when the owner of that repo makes any changes and push the fresh changes to his github. Then you can use the Pull command to fetch the updated changes of the project on your local host.
+The git pull command is given bellow :
+ 
+$ Git Pull
+
+Now you need to push your changes on your repo. After that send the pull request to the respective owner of the Project by clicking the Pull request option from the github.
+
